@@ -1,11 +1,16 @@
 export class Frame
 {
-    FirstThrowResult: number;
-    SecondThrowResult: number;
-    //For the tenth frame
-    ExtraThrowResult: number;
+    Throws: number[];
+
+    //throws: an ordinal array, throws are assigned by array order
+    constructor(throws: number[])
+    {
+        this.Throws = throws;
+    }
+    
     IsStrike(): boolean {
-        if (this.FirstThrowResult == 10) {
+        let firstThrow = this.Throws[0];
+        if (firstThrow == 10) {
             return true;
         }
         else
@@ -13,11 +18,20 @@ export class Frame
             return false;
         }
     }
+
     IsSpare(): boolean {
-        if (this.SecondThrowResult != null
-            && this.FirstThrowResult < 10
-            && this.FirstThrowResult + this.SecondThrowResult == 10) {
+        let firstThrow = this.Throws[0];
+        let secondThrow = this.Throws[1];
+        if (firstThrow != null
+            && firstThrow < 10
+            && firstThrow + secondThrow == 10) {
                 return true;
             }
+    }
+
+    PinsKnockedDown(): number {
+        let firstThrow = this.Throws[0];
+        let secondThrow = this.Throws[1];
+        return firstThrow + secondThrow;
     }
 }

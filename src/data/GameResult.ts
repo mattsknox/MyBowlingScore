@@ -3,6 +3,13 @@ import { Frame } from './Frame';
 export class GameResult {
     Frames: Frame[];
     GameplayDate: Date;
+
+    constructor(frames: Frame[], gameplayDate: Date) {
+        this.Frames = frames;
+        this.GameplayDate = gameplayDate;
+    }
+
+
     Score(): number {
         let score: number = 0;
 
@@ -10,11 +17,10 @@ export class GameResult {
         {
             let frameNumber = frameIndex + 1;
             let currentFrame = this.Frames[frameIndex];
-            let rawScore = currentFrame.FirstThrowResult + currentFrame.SecondThrowResult;
+            let rawScore = currentFrame.PinsKnockedDown();
             score += rawScore;
             
-            
-            if (frameNumber > 1) //There's a last frame
+            if (frameNumber > 1) //There was a previous frame
             {
                 let lastFrame = this.Frames[frameIndex - 1];
                 if (lastFrame.IsStrike()
@@ -24,7 +30,7 @@ export class GameResult {
                 }
             }
 
-            if (frameNumber > 2) //There's a second-to-last frame
+            if (frameNumber > 2) //There were two previous frames
             {
                 let secondToLastFrame = this.Frames[frameIndex - 2];
                 if (secondToLastFrame.IsStrike())
