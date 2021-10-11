@@ -37,6 +37,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('MyBowlingScore app is running!');
+    expect(compiled.querySelector('.toolbar-title span').textContent).toContain('My Bowling Score');
   });
 });

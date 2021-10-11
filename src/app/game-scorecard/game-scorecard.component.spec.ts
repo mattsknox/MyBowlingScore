@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GameScorecardComponent } from './game-scorecard.component';
 import { FrameboxComponent } from '../framebox/framebox.component';
 import { ScoreboxComponent } from '../scorebox/scorebox.component';
+import { GameStorageService } from '../game-storage.service';
 
 describe('GameScorecardComponent', () => {
   let component: GameScorecardComponent;
@@ -14,6 +15,9 @@ describe('GameScorecardComponent', () => {
         GameScorecardComponent,
         FrameboxComponent,
         ScoreboxComponent
+     ],
+     providers: [
+      GameStorageService
      ]
     })
     .compileComponents();
