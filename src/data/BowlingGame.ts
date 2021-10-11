@@ -53,7 +53,7 @@ export class BowlingGame {
                 }
                 
                 
-                if (frameNumber > 2) { //There were two previous frames
+                if (frameNumber > 2) { 
                     let secondToLastFrame = this.Frames[frameIndex - 2];
                     if (secondToLastFrame.IsOpen) {
                         secondToLastFrame.FrameScore += lastThrow;
@@ -64,7 +64,6 @@ export class BowlingGame {
                 if (frameNumber == 10
                     && (currentFrame.IsSpare() || currentFrame.IsStrike())) {
                         if (currentFrame.Throws.length == 2) {
-                            debugger;
                             let points = currentFrame.Throws[1];
                             if (!!lastFrame.IsOpen) {
                                 lastFrame.FrameScore += points;
