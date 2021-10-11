@@ -1,12 +1,23 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FrameboxComponent } from './framebox/framebox.component';
+import { GameScorecardComponent } from './game-scorecard/game-scorecard.component';
+import { ScoreboxComponent } from './scorebox/scorebox.component';
+import { GameStorageService } from './game-storage.service';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        FrameboxComponent,
+        GameScorecardComponent,
+        ScoreboxComponent
       ],
+      providers: [
+        GameStorageService
+      ]
     }).compileComponents();
   }));
 
