@@ -1,5 +1,50 @@
 # MyBowlingScore
 
+This is my answer to the Bowling Game exercise, the objective of which was to create a page capable of parsing a complete game of bowling.  I used my most recent latest Angular project as reference while I knocked off the dust; it's been a couple years, but most of it was starting to come back to me.
+
+I believe my first pass at a method capable of simply parsing a complete game is available on commit d74a0714eaf2b7fbee9555899cfa0c2bd76ced2c 
+
+I used the spec test to ensure the scoring algorithm kept working.  It was broken for a few commits.
+
+Here's the text of the method from the source control history, for convenience:
+```
+Score(): number {
+        let score: number = 0;
+
+        for( let frameIndex = 0; frameIndex < this.Frames.length; frameIndex++ )
+        {
+            let frameNumber = frameIndex + 1;
+            let currentFrame = this.Frames[frameIndex];
+            let rawScore = currentFrame.PinsKnockedDown();
+            score += rawScore;
+            
+            if (frameNumber > 1) //There was a previous frame
+            {
+                let lastFrame = this.Frames[frameIndex - 1];
+                if (lastFrame.IsStrike()
+                || lastFrame.IsSpare())
+                {
+                    score += rawScore;
+                }
+            }
+
+            if (frameNumber > 2) //There were two previous frames
+            {
+                let secondToLastFrame = this.Frames[frameIndex - 2];
+                if (secondToLastFrame.IsStrike())
+                {
+                    score += rawScore;
+                }
+            }
+        }
+
+        return score;
+    }
+```
+
+Once I saw a good result on the scoring algorithm, I starting building it out as a page that could keep score as you bowled.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Development server
