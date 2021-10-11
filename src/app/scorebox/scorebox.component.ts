@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'scorebox',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scorebox.component.scss']
 })
 export class ScoreboxComponent implements OnInit {
+
+  @Input()
+  GameScore: number;
 
   constructor() { }
 

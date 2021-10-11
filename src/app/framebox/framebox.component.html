@@ -1,1 +1,13 @@
-<p>framebox works!</p>
+<div class="frame-view-wrapper">
+    <div class="frame-number">
+        Frame {{FrameNumber}}
+    </div>
+    <div class="throw-values">
+        <div class="throw-value" *ngFor="let pinCount of Frame.Throws">
+            {{pinCount}}
+        </div>
+    </div>
+    <div class="frame-score">
+        {{this.Frame.FrameScore}}
+    </div>
+</div>

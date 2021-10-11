@@ -1,6 +1,8 @@
 export class Frame
 {
     Throws: number[];
+    FrameScore: number;
+    IsOpen: boolean;
 
     //throws: an ordinal array, throws are assigned by array order
     constructor(throws: number[])

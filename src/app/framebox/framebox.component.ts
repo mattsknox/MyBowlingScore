@@ -9,11 +9,15 @@ import { Frame } from '../../data/Frame';
 export class FrameboxComponent implements OnInit {
 
   @Input()
+  FrameNumber: number;
+
+  @Input()
   Frame: Frame;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.Frame);
   }
 
 }

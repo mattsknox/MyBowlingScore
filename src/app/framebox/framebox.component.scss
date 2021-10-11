@@ -1,0 +1,25 @@
+.frame-view-wrapper {
+    min-width: 64px;
+    text-align: center;
+    font-size: .8em;
+    border: 1px solid black;
+    min-height: 86px;
+}
+
+.throw-values {
+    display: flex;
+}
+
+.throw-value {
+    border: 1px solid black;
+    padding: 4px;
+    flex-grow: 1;
+}
+.frame-number {
+    min-width:12px;
+    border: 1px solid black;
+}
+.frame-score {
+    padding-top: 8px;
+    font-size: 1.3rem;
+}

@@ -25,7 +25,7 @@ export class GameStorageService {
       new Frame([ 8 , 2 ]),
       new Frame([ 10 , 1, 7 ])
     ];
-
+    
     let activeGame: GameResult = 
       new GameResult(frames, gameDate);
 
