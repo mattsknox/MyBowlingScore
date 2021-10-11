@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FrameboxComponent } from './framebox.component';
+import { Frame } from 'src/data/Frame';
 
 describe('FrameboxComponent', () => {
   let component: FrameboxComponent;
@@ -16,6 +17,7 @@ describe('FrameboxComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FrameboxComponent);
     component = fixture.componentInstance;
+    component.Frame = new Frame([]);
     fixture.detectChanges();
   });
 

@@ -4,6 +4,7 @@ import { GameScorecardComponent } from './game-scorecard.component';
 import { FrameboxComponent } from '../framebox/framebox.component';
 import { ScoreboxComponent } from '../scorebox/scorebox.component';
 import { GameStorageService } from '../game-storage.service';
+import { BowlingGame } from 'src/data/BowlingGame';
 
 describe('GameScorecardComponent', () => {
   let component: GameScorecardComponent;
@@ -26,6 +27,7 @@ describe('GameScorecardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GameScorecardComponent);
     component = fixture.componentInstance;
+    component.Game = new BowlingGame([], new Date());
     fixture.detectChanges();
   });
 

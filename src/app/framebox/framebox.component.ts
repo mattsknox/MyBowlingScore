@@ -17,7 +17,6 @@ export class FrameboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.Frame);
   }
 
 }
