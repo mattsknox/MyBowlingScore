@@ -28,6 +28,8 @@ export class BowlingGame {
             }
             else if (currentFrame.Throws.length == 2) {
                 currentFrame.IsOpen = false;
+            } else if (currentFrame.Throws.length < 2) {
+                currentFrame.IsOpen = true;
             }
             if (frameNumber > 1) //There was a previous frame
             {
