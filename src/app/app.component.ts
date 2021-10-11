@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameResult } from 'src/data/GameResult';
+import { BowlingGame } from 'src/data/BowlingGame';
 import { GameStorageService } from './game-storage.service';
 
 @Component({
@@ -10,15 +10,31 @@ import { GameStorageService } from './game-storage.service';
 export class AppComponent {
   title = 'MyBowlingScore';
 
-  public ActiveGame: GameResult;
+  public ActiveGame: BowlingGame;
+  public Games: BowlingGame[];
+
+  pinsKnockedDown: number;
 
   constructor(private gameService: GameStorageService) {}
 
   ngOnInit() {
-    this.gameService.ActiveGame.subscribe(game => {
-      if (game != null) {
-        this.ActiveGame = game;
+    this.pinsKnockedDown = 0;
+    this.gameService.Games.subscribe(games => {
+      if (games != null) {
+        this.ProcessNewGames(games);
       }
     });
+  }
+
+  ProcessNewGames(games: BowlingGame[]) {
+    this.Games = games;
+  }
+
+  UpdatePinValue(newValue) {
+    this.pinsKnockedDown = parseInt(newValue);
+  }
+
+  SaveThrow() {
+    this.gameService.SaveThrow(this.pinsKnockedDown);
   }
 }

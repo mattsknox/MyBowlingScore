@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GameResult } from 'src/data/GameResult';
+import { BowlingGame } from 'src/data/BowlingGame';
 import { GameStorageService } from '../game-storage.service';
 
 @Component({
@@ -9,22 +9,16 @@ import { GameStorageService } from '../game-storage.service';
 })
 export class GameScorecardComponent implements OnInit {
 
-  public ActiveGame: GameResult;
+  @Input()
+  public Game: BowlingGame;
   public GameScore: number;
 
-  constructor(private gameService: GameStorageService) { }
+  constructor(private gameService: GameStorageService) { 
 
-  ngOnInit() {
-    this.gameService.ActiveGame.subscribe(game => {
-      if (game != null) {
-        this.ProcessNewGameData(game);
-      }
-    });
   }
 
-  ProcessNewGameData(game: GameResult) {
-    this.GameScore = game.Score();
-    this.ActiveGame = game;
+  ngOnInit() {
+    this.GameScore = this.Game.Score();
   }
 
 }

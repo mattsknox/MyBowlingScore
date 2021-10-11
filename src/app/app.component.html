@@ -16,10 +16,14 @@
   />
 </div>
 
-<div class="content" role="main" *ngIf="ActiveGame != null; else awaitingGameBlock">
-  <game-scorecard>
-  </game-scorecard>
-</div>
+<div class="content" role="main" *ngIf="Games !== null; else awaitingGameBlock">
+  <div *ngFor="let game of Games;">
+    <game-scorecard [Game]="game">
+    </game-scorecard>
+  </div>
+  <input class="save-throw-input" type="number" min=0 max=10 (change)="UpdatePinValue($event.target.value)" />
+  <button class="save-throw-button" (click)="SaveThrow()" >Save Throw</button>
+</div> 
 <ng-template #awaitingGameBlock>
   <div class="content">
     <span>Awaiting game data</span>

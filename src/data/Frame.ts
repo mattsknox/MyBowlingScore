@@ -22,6 +22,10 @@ export class Frame
     }
 
     IsSpare(): boolean {
+        if (this.Throws.length < 2
+            ||this.Throws[1] == null) {
+            return false;
+        }
         let firstThrow = this.Throws[0];
         let secondThrow = this.Throws[1];
         if (firstThrow != null
@@ -33,7 +37,11 @@ export class Frame
 
     PinsKnockedDown(): number {
         let firstThrow = this.Throws[0];
-        let secondThrow = this.Throws[1];
-        return firstThrow + secondThrow;
+        if (this.Throws.length < 2) {
+            return firstThrow;
+        } else {
+            let secondThrow = this.Throws[1];
+            return firstThrow + secondThrow;
+        }
     }
 }
